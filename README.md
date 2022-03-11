@@ -23,7 +23,8 @@ It can remove 000.exe without *any* work!... Well, not really.
 Upon running the script, if a prompt appears, select Yes, as administrator permissions **are required** for the program.  
 The program will diagnose your computer first to determine if your computer is infected with 000.exe or not.  
 After that, you will be brought to the menu, where you can back up stuff that 000.exe can delete.  
-If you are infected, you have the option to attempt to remove the virus, where the program uses the backups that were created before the infection.
+If you are infected, you have the option to attempt to remove the virus, where the program uses the backups that were created before the infection.  
+After removing the virus, the program will then tell you what to do and, of course, *prompt you to restart*.
 
 # FAQ
 **Q: What is the "WindowsApps" folder?**  
