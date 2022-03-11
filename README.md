@@ -32,5 +32,5 @@ A: The WindowsApps folder is a folder found hidden in the Program Files folder a
 **Q: I got infected and deleted all the UR NEXT files and the OPENME file on my desktop. The program sees the desktop as "deleted", but some of my desktop's files are still there. Why is that?**  
 A: That's because those icons come from the *Public* desktop, which files will appear in every single user's desktop. The other files that were deleted by the virus come from *your own* desktop.
 
-**Q: I found a bug in the program! Where can I report it?**
+**Q: I found a bug in the program! Where can I report it?**  
 A: You can report a bug or glitch in the program [here](https://github.com/gamingwithevets/000exefix/issues).
