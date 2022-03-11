@@ -522,7 +522,7 @@ if %desktopfixed% == 2 if %usernameurnextfixed% == 0 (echo But you'll have to ch
 if %desktopfixed% == 0 if %usernameurnextfixed% == 0 (echo But you'll have to restore your desktop, change the wallpaper and change the username yourself.)
 if %desktopfixed% == 0 if %usernameurnextfixed% == 1 (echo But you'll have to restore your desktop and change the wallpaper yourself.)
 echo You must restart your computer for the changes to take effect.
-choice /n /c YN /m "Restart now? (Y/N) "
+choice /n /c YN /m "Restart now? [Y/N] "
 if %errorlevel% == 1 (shutdown /r /t 0) else (
 cls
 echo %header%
