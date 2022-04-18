@@ -19,6 +19,8 @@ So! Have **you** ever been infected with 000.exe? Do you wanna remove that nasty
 Don't worry, because **GWE's 000.exe Virus Removal Tool** has got you covered!  
 It can remove 000.exe without *any* work!... Well, not really.
 
+Tested with Windows 11.
+
 # How to use
 Upon running the script, if a prompt appears, select Yes, as administrator permissions **are required** for the program.  
 The program will diagnose your computer first to determine if your computer is infected with 000.exe or not.  
