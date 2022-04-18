@@ -1,5 +1,5 @@
 # Backstory
-On May 11, 2015, YouTuber [FlyTech Videos](youtube.com/FlyTechVideos) posted a [creepypasta video](https://www.youtube.com/watch?v=MHlvjC6yOtM) of **000.exe**, a computer virus. The video gained a lot of attention that FlyTech decides to release it publicly for users to try out.
+On May 11, 2015, YouTuber [FlyTech Videos](youtube.com/FlyTechVideos) posted a [creepypasta video](https://www.youtube.com/watch?v=MHlvjC6yOtM) of **000.exe**, a Windows computer virus. The video gained a lot of attention that FlyTech decides to release it publicly for users to try out.
 ## FlyTech's policy
 In his [000.exe Making Of video](https://www.youtube.com/watch?v=e_TYnADDsLQ), FlyTech writes:
 
@@ -15,7 +15,7 @@ Unfortunately, some users didn't see this warning and therefore still said it wa
 > *Answered May 27, 2017*  
 > Its That virus that is apparently still downloadble (who would download it and why would anyone want you to have it) and it does really no harm its basically a prank so no viruses are downloaded but it is pretty annoying
 
-So! Have **you** ever been infected with 000.exe? Do you wanna remove that virus from your computer, but don't wanna do all that registry editing?  
+So! Have **you** ever been infected with 000.exe? Do you wanna remove that nasty virus from your computer, but don't wanna do all that registry editing, file cleaning, etc.?  
 Don't worry, because **GWE's 000.exe Virus Removal Tool** has got you covered!  
 It can remove 000.exe without *any* work!... Well, not really.
 
