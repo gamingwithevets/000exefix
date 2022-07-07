@@ -11,7 +11,6 @@ In his [000.exe Making Of video](https://www.youtube.com/watch?v=e_TYnADDsLQ), F
 
 Unfortunately, some users didn't see this warning and therefore still said it was a prank. This is the case with [a user who answered a question on Quora about 000.exe](https://qr.ae/pGLpAt). This user also said the virus is harmless, when it's not. *(Please **do not** accuse this user for saying misleading information!)*
 
-> ***Corvinius Prundeanu**, lives in Bucharest (2017-present)*  
 > *Answered May 27, 2017*  
 > Its That virus that is apparently still downloadble (who would download it and why would anyone want you to have it) and it does really no harm its basically a prank so no viruses are downloaded but it is pretty annoying
 
@@ -29,6 +28,15 @@ If you are infected, you have the option to attempt to remove the virus, where t
 After removing the virus, the program will then tell you what to do **on your own** (as the program *can't* do that) and, of course, *prompt you to restart*.
 
 # FAQ
+**Q: What is 000.exe?**  
+A: 000.exe is a Windows computer virus, originally made by YouTuber FlyTech Videos as a creepypasta. It's so dangerous that even FlyTech himself said to not use the virus as a prank, and to run the virus on a safe environment, like a virtual machine.
+
+**Q: Who is FlyTech Videos?**  
+A: He's a YouTuber who covers all sorts of Windows experiments he does, from messing with ZIP files to deleting the recycle bin, and even "corrupting" the entire C drive (he didn't *really* corrupt it). If you like these sorts of things, maybe you should give him a watch and subscribe to him on YouTube!
+
+**Q: Why did the Quora user think the 000.exe virus was a prank?**  
+A: I can't know for sure, but this user probably doesn't know about the origins of the virus and who made it. They probably did not research the virus well enough and just searched "000.exe" and saw that it was made by some random dude on the internet. He doesn't know whoever this is and assumed that it was just a prank. They probably didn't run the virus themselves, either.
+
 **Q: What is the "WindowsApps" folder?**  
 A: The WindowsApps folder is a folder found hidden in the Program Files folder and can't be opened normally. It is present in Windows 8 and onward. It holds all the preinstalled software and also contains the applications you installed from the Microsoft Store.
 
@@ -39,4 +47,4 @@ A: That's because those icons come from the *Public* desktop, which files will a
 A: The program stores its backups in the Temp folder, which stores all the *temporary* files. For some reason, the backup you made was **deleted**. Try backing them up again. While your system is free of the virus, of course.  
 
 **Q: I found a bug in the program! Where can I report it?**  
-A: You can report a bug or glitch in the program [here](https://github.com/gamingwithevets/000exefix/issues).
+A: You can report a bug or glitch in the program [here](https://github.com/gamingwithevets/000exefix/issues/new).
