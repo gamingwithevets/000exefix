@@ -35,7 +35,7 @@ A: 000.exe is a Windows computer virus, originally made by YouTuber FlyTech Vide
 A: He's a YouTuber who covers all sorts of Windows experiments he does, from messing with ZIP files to deleting the recycle bin, and even "corrupting" the entire C drive (he didn't *really* corrupt it). If you like these sorts of things, maybe you should give him a watch and subscribe to him on YouTube!
 
 **Q: Why did the Quora user think the 000.exe virus was a prank?**  
-A: I can't know for sure, but this user probably doesn't know about the origins of the virus and who made it. They probably did not research the virus well enough and just searched "000.exe" and saw that it was made by some random dude on the internet. He doesn't know whoever this is and assumed that it was just a prank. They probably didn't run the virus themselves, either.
+A: I can't know for sure, but this user probably doesn't know about the origins of the virus and who made it. They probably did not research the virus well enough and just searched "000.exe" and saw that it was made by some random dude on the internet. They don't know whoever this is and assumed that it was just a prank. They probably didn't run the virus themselves, either.
 
 **Q: What is the "WindowsApps" folder?**  
 A: The WindowsApps folder is a folder found hidden in the Program Files folder and can't be opened normally. It is present in Windows 8 and onward. It holds all the preinstalled software and also contains the applications you installed from the Microsoft Store.
