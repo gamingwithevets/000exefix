@@ -44,7 +44,7 @@ A: The WindowsApps folder is a folder found hidden in the Program Files folder a
 A: That's because those icons come from the *Public* desktop, which files will appear in every single user's desktop. The other files that were deleted by the virus come from *your own* desktop.
 
 **Q: I used the program to back up my desktop/WindowsApps folder/username. But when restoring, the program cannot restore it/them because they were "not backed up"!**  
-A: The program stores its backups in the Temp folder located in `<profile directory>\AppData\Local` (`AppData` is a hidden folder), which stores all the *temporary* files. The backup you made was **deleted** probably because some program cleaned out the Temp folder and deleted the backups. I am working on a fix. In the meantime, try backing them up again. While your system is free of the virus, of course.  
+A: In v1.0.0, the program stores its backups in the Temp folder located in `<profile directory>\AppData\Local` (`AppData` is a hidden folder), which stores all the *temporary* files. The backup you made was **deleted** probably because some program cleaned out the Temp folder and deleted the backups. You can either try backing them up again (while your system is free of the virus, of course) or update to a newer version, which saves the backups in your user folder.
 
 **Q: I found a bug in the program! Where can I report it?**  
 A: You can report a bug or glitch in the program [here](https://github.com/gamingwithevets/000exefix/issues/new).
