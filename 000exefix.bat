@@ -3,7 +3,7 @@ cls
 
 set inmenu=0
 
-set version=1.0.0
+set version=1.1.0
 set "header=GWE's 000.exe VIRUS REMOVAL TOOL - v%version%&echo."
 
 net session >nul 2>&1
@@ -23,6 +23,19 @@ del "%temp%\getadmin.vbs"
 exit /b
 
 :check
+
+set /a numchecks=13
+set /a numaccountchecks=1
+set /a numregistrychecks=3
+set /a numtempchecks=5
+set /a numotherchecks=4
+
+set /a passedchecks=0
+set /a passedaccountchecks=0
+set /a passedregistrychecks=0
+set /a passedtempchecks=0
+set /a passedotherchecks=0
+
 title GWE's 000.exe Virus Removal Tool - v%version%
 cls
 echo %header%
@@ -32,6 +45,8 @@ echo Checking account...
 if "%username%" == "UR NEXT" (goto username2) else (
 echo Username: Intact (OK^)
 set usernameurnext=0
+set /a passedaccountchecks+=1
+set /a passedchecks+=1
 goto next
 )
 
@@ -39,12 +54,15 @@ goto next
 if exist "%systemdrive%\users\UR NEXT" (
 echo Username: Intact (OK^)
 set usernameurnext=0
+set /a passedaccountchecks+=1
+set /a passedchecks+=1
 ) else (
 echo Username: Changed (NOT OK^)
 set usernameurnext=1
 )
 
 :next
+echo Passed: %passedaccountchecks%/%numaccountchecks%
 echo.
 echo Checking the registry...
 
@@ -55,12 +73,16 @@ set txtfile=1
 ) else (
 echo .TXT File Default Icon: Not UR NEXT Icon (OK^)
 set txtfile=0
+set /a passedregistrychecks+=1
+set /a passedchecks+=1
 )
 
 reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Policies | findstr System >nul 2>&1
 if %errorlevel% == 0 (goto taskmgr0) else (
 echo Task Manager: Enabled (OK^)
 set disabletaskmgr=0
+set /a passedregistrychecks+=1
+set /a passedchecks+=1
 goto autorestartshell1
 )
 
@@ -69,6 +91,8 @@ reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System | finds
 if %errorlevel% == 0 (goto taskmgr1) else (
 echo Task Manager: Enabled (OK^)
 set disabletaskmgr=0
+set /a passedregistrychecks+=1
+set /a passedchecks+=1
 goto autorestartshell1
 )
 
@@ -80,6 +104,8 @@ set disabletaskmgr=1
 ) else (
 echo Task Manager: Enabled (OK^)
 set disabletaskmgr=0
+set /a passedregistrychecks+=1
+set /a passedchecks+=1
 )
 
 :autorestartshell1
@@ -87,6 +113,8 @@ reg query "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" | findstr
 if %errorlevel% == 0 (goto autorestartshell2) else (
 echo Auto Restart Shell: Not Set (OK^)
 set noautorestartshell=0
+set /a passedregistrychecks+=1
+set /a passedchecks+=1
 goto temp
 )
 
@@ -96,11 +124,14 @@ if %errorlevel == 0 (
 echo Auto Restart Shell: Disabled (NOT OK^)
 set noautorestartshell=1
 ) else (
-echo Auto Restart Shell: Enabled
-set noautorestartshell=0 (OK^)
+echo Auto Restart Shell: Enabled (OK^)
+set noautorestartshell=0
+set /a passedregistrychecks+=1
+set /a passedchecks+=1
 )
 
 :temp
+echo Passed: %passedregistrychecks%/%numregistrychecks%
 echo.
 echo Checking Temp folder...
 
@@ -110,6 +141,8 @@ set texticon=1
 ) else (
 echo UR NEXT Icon File: Not Found (OK^)
 set texticon=0
+set /a passedtempchecks+=1
+set /a passedchecks+=1
 )
 
 if exist "%temp%\text.txt" (
@@ -118,6 +151,8 @@ set txt=1
 ) else (
 echo UR NEXT Text Document: Not Found (OK^)
 set txt=0
+set /a passedtempchecks+=1
+set /a passedchecks+=1
 )
 
 if exist "%temp%\windl.bat" (
@@ -126,6 +161,8 @@ set windl=1
 ) else (
 echo WINDL Batch File: Not Found (OK^)
 set windl=0
+set /a passedtempchecks+=1
+set /a passedchecks+=1
 )
 
 if exist "%temp%\one.rtf" (
@@ -134,6 +171,8 @@ set one=1
 ) else (
 echo OPENME Rich Text Format: Not Found (OK^)
 set one=0
+set /a passedtempchecks+=1
+set /a passedchecks+=1
 )
 
 if exist "%temp%\rniw.exe" (
@@ -142,15 +181,20 @@ set subox=1
 ) else (
 echo Runaway Application: Not Found (OK^)
 set subox=0
+set /a passedtempchecks+=1
+set /a passedchecks+=1
 )
 
+echo Passed: %passedtempchecks%/%numtempchecks%
 echo.
 echo Checking other stuff...
 wmic path Win32_OperatingSystem get Version /value | findstr "6.2 6.3 10.0" >nul 2>&1
 if %errorlevel% == 1 (
-echo WindowsApps Folder: Skipped Checking - Not in Windows 7 and under (OK^)
+echo WindowsApps Folder: Skipped Checking (Version is not Windows 8+^)
 set nowindowsappsskip=1
 set nowindowsapps=0
+set /a passedotherchecks+=1
+set /a passedchecks+=1
 goto suboxstartup
 )
 
@@ -162,6 +206,8 @@ set nowindowsapps=1
 echo WindowsApps Folder: Exists (OK^)
 set nowindowsappsskip=0
 set nowindowsapps=0
+set /a passedotherchecks+=1
+set /a passedchecks+=1
 )
 
 :suboxstartup
@@ -171,14 +217,18 @@ set suboxstartup=1
 ) else (
 echo Runaway Application at Startup: Not Found (OK^)
 set suboxstartup=0
+set /a passedotherchecks+=1
+set /a passedchecks+=1
 )
 
 if exist "%userprofile%\desktop\UR NEXT UR NEXT UR NEXT UR NEXT UR NEXT UR NEXT UR NEXT UR N*XT.txt" (
-echo UR NEXT Text Document in Desktop x 400: Exists (NOT OK^)
+echo UR NEXT Text Document in Desktop x 400: Exists (at least 1^) (NOT OK^)
 set fourtxt=1
 ) else (
 echo UR NEXT Text Document in Desktop x 400: Not Found (OK^)
 set fourtxt=0
+set /a passedotherchecks+=1
+set /a passedchecks+=1
 )
 
 if exist "%userprofile%\desktop\OPENMEOPENMEOPENMEOPENMEOPENMEOPENMEOPENMEOPENMEOPENMEOPENMEOPENMEOPENMEOPENME.rtf" (
@@ -187,8 +237,13 @@ set onedesktop=1
 ) else (
 echo OPENME Rich Text Format in Desktop: Not Found (OK^)
 set onedesktop=0
+set /a passedotherchecks+=1
+set /a passedchecks+=1
 )
 
+echo Passed: %passedotherchecks%/%numotherchecks%
+echo.
+echo TOTAL PASSED: %passedchecks%/%numchecks%
 echo.
 if %usernameurnext% == 0 if %txtfile% == 0 if %disabletaskmgr% == 0 if %noautorestartshell% == 0 if %texticon% == 0 if %txt% == 0 if %windl% == 0 if %one% == 0 if %subox% == 0 if %nowindowsapps% == 0 if %suboxstartup% == 0 if %fourtxt% == 0 if %onedesktop% == 0 (
 echo RESULT: Your computer is free of 000.exe!
@@ -285,10 +340,9 @@ echo.
 goto premenu
 ) else (
 echo Backing up username...
-echo %username% > "%temp%\username.txt"
-if "%FullName%" == "" (attrib +S +H "%temp%\username.txt") else (
-echo %FullName% >> "%temp%\username.txt"
-attrib +S +H "%temp%\username.txt"
+echo %username% > "%userprofile%\000exefix_backups\username.txt"
+if "%FullName%" == "" (attrib +S +H "%userprofile%\000exefix_backups\username.txt") else (
+echo %FullName% >> "%userprofile%\000exefix_backups\username.txt"
 )
 echo Username backed up successfully!
 echo.
@@ -315,8 +369,7 @@ echo.
 goto premenu
 )
 echo Backing up WindowsApps folder... This may take a while.
-xcopy /E /Q /I "%programfiles%\windowsapps\" "%temp%\WindowsApps_temp\" >nul 2>&1
-attrib /D +S +H "%temp%\WindowsApps_temp"
+xcopy /E /Q /I "%programfiles%\windowsapps\" "%userprofile%\000exefix_backups\WindowsApps\" >nul 2>&1
 echo WindowsApps folder backed up successfully!
 echo.
 goto premenu
@@ -337,8 +390,7 @@ goto premenu
 
 :backup_desktop1
 echo Backing up desktop...
-xcopy /E /Q /I "%userprofile%\desktop\" "%temp%\Desktop_temp\" >nul 2>&1
-attrib /D +S +H "%temp%\Desktop_temp"
+xcopy /E /Q /I "%userprofile%\desktop\" "%userprofile%\000exefix_backups\%username%_Desktop\" >nul 2>&1
 echo Desktop backed up successfully!
 echo.
 goto premenu
@@ -360,8 +412,8 @@ goto fix1
 if exist %temp%\username.txt (
 echo Username is previously backed up.
 echo Restoring username...
-set /p usrnamebackup= < %temp%\username.txt
-set /p fullnamebackup= << %temp%\username.txt
+set /p usrnamebackup= < %userprofile%\000exefix_backups\username.txt
+for /f "skip=1" %%a in (%userprofile%\000exefix_backups\username.txt) do if not defined fullnamebackup set "fullnamebackup=%%a"
 wmic useraccount where name='%username%' rename '%usrnamebackup%' >nul 2>&1
 wmic useraccount where name='%username%' set FullName='%fullnamebackup%' >nul 2>&1
 if errorlevel == 0 (
@@ -454,8 +506,7 @@ echo Attemping to restore WindowsApps folder...
 if exist "%temp%\WindowsApps_temp\" (
 echo WindowsApps folder is previously backed up.
 echo Restoring WindowsApps folder...
-xcopy /E /Q /I /Y "%temp%\WindowsApps_temp\" "%programfiles%\windowsapps\" >nul 2>&1
-attrib /D -S "%programfiles%\windowsapps"
+xcopy /E /Q /I /Y "%userprofile%\000exefix_backups\WindowsApps\" "%programfiles%\windowsapps\" >nul 2>&1
 if errorlevel == 0 (echo WindowsApps Folder: Restored) else (echo WindowsApps Folder: Cannot Restore)
 ) else (
 echo WindowsApps Folder: Cannot Restore (Not Backed Up^)
@@ -496,11 +547,10 @@ goto fixend
 )
 echo.
 echo Attemping to restore desktop...
-if exist "%temp%\Desktop_temp\" (
+if exist "%userprofile%\000exefix_backups\%username%_Desktop" (
 echo Desktop is previously backed up.
 echo Restoring desktop...
-xcopy /E /Q /I /Y "%temp%\Desktop_temp\" "%userprofile%\desktop\" >nul 2>&1
-attrib /D -S -H "%userprofile%\desktop"
+xcopy /E /Q /I /Y "%userprofile%\000exefix_backups\%username%_Desktop\" "%userprofile%\desktop\" >nul 2>&1
 if errorlevel == 0 (
 echo Desktop: Restored
 set desktopfixed=1
