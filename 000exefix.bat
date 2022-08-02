@@ -340,10 +340,9 @@ echo.
 goto premenu
 ) else (
 echo Backing up username...
+if not exist "%userprofile%\000exefix_backups" md "%userprofile%\000exefix_backups"
 echo %username% > "%userprofile%\000exefix_backups\username.txt"
-if "%FullName%" == "" (attrib +S +H "%userprofile%\000exefix_backups\username.txt") else (
-echo %FullName% >> "%userprofile%\000exefix_backups\username.txt"
-)
+if "%FullName%" neq "" (echo %FullName% >> "%userprofile%\000exefix_backups\username.txt")
 echo Username backed up successfully!
 echo.
 goto premenu
